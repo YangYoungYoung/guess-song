@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/game/game",
+    "pages/pkstyle/pkstyle",
+    "pages/pkwelcome/pkwelcome",
+    "pages/pkwating/pkwating",
+    "pages/pkend/pkend",
+    "pages/pass/pass",
+    "pages/logs/logs",
+    "pages/rank/rank",
+    "pages/about/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ccf6f2",
+    "navigationBarTitleText": "馋猫猜歌名",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom ",
+    "enablePullDownRefresh": false
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

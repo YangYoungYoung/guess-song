@@ -1,0 +1,78 @@
+<!--pages/game/game.wxml-->
+<view class='containergame'>
+  <view class='one'>
+    <view class='ziti'>第
+      <text class='text_ziti'>{{grade+1}}</text> 首</view>
+  </view>
+
+  <view class='cat' animation="{{animationData}}" style="background-image: url('https://xyt.xuanyutong.cn/Servlet/image/pink_cat.png');background-size: cover;background-repeat:round">
+
+    <!--  -->
+    <view class='triangle'>
+      <image class='bt_start' src="{{imageUrl}}" bindtap='change'></image>
+    </view>
+  </view>
+
+  <!--    -->
+  <view class='center'>
+    <view class='hint' bindtap='toHint'>
+      <text class='ziti2'>提示</text>
+    </view>
+    <view class='share'>
+      <button class='share_button' open-type="share" bindtap='onShareAppMessage'>分享</button>
+    </view>
+    <view class='help'>
+      <button class='help_button' open-type="share" bindtap='onShareAppMessage'>求助+20</button>
+      <image class='note' src='../../images/note.png'></image>
+    </view>
+  </view>
+
+  <!-- 歌曲名字  -->
+  <view class='name'>
+    <block class='box2' wx:for-items="{{list_name}}" wx:key="{{item.id}}">
+      <view class="{{uhide==item.id?'bright789_view_hide':'bright789_view_show'}}" bindtap='nameclick' id="{{item.id}}" data-text="{{item.name}}">
+        <view class="confusingwords">{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 很多字 -->
+  <view class='last'>
+    <block wx:for-items="{{list_all}}" wx:key="{{item.id}}">
+      <view bindtap='click' id="{{item.id}}" data-text="{{item.name}}">
+        <view class="confusingwords">{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+  <!-- 错误提示框 -->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showWrongModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showWrongModal}}">
+    <view class="modal-title">回答错误</view>
+    <view class="modal-footer">
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>
+</view>
+<!-- 正确提示框 -->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="box" wx:if="{{showModal}}">
+  <image class='answerok' src='../../images/answer_ok.png'></image>
+  <view class="background" style="background-image: url('https://xyt.xuanyutong.cn/Servlet/image/white_cat.png');background-size: cover;background-repeat:round">
+    <view class='modalziti'>第
+      <text class='text_ziti'>{{grade+1}}</text> 首
+    </view>
+    <view class='blue'>
+      <view class='bluecontent'>
+        <text class='textone'>{{songname}}</text>
+        <image class='heart' src='../../images/heart.png'></image>
+      </view>
+    </view>
+    <view class='bottom'>
+      <image class='note' src='../../images/note.png'></image>
+      <text class='add'>+10</text>
+    </view>
+  </view>
+  <view class="next" bindtap="toNext">
+    <text class='text'>下一题</text>
+  </view>
+</view>

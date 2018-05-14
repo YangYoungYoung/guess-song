@@ -1,0 +1,16 @@
+<!--pages/pkwating/pkwating.wxml-->
+<view class='container'>
+  <view class='base'>
+    <view class="yuan"> 
+      <image  src="../../images/pk_waiting.png"  mode="widthFix" ></image>  
+    </view>
+    <text class="warp">{{ countDownNumber }}</text> <!-- 倒计时 -->   
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>  
+  </view>
+  <view class='row'>
+    <view class='yinfu'>
+      <image src="../../images/pk_waiting_musiclogo.png" mode="aspectFill"/> 
+    </view>   
+    <text class='num'>30</text>
+  </view>
+</view>

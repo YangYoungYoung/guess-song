@@ -1,0 +1,16 @@
+<!--pages/help/help.wxml-->
+<view class='container-help'>
+  <view class='red'>
+    <text class='bang'>关于我们</text>
+  </view>
+  <view class='content-blue'>
+    <text class='text-bang'>河北玄宇通网络科技有限公司成立于2017年，注册资金400万，是一家从事软件开发；信息系统集成服务；数据处理和存储服务；计算机、软件及辅助设备销售。2017年研发了服务千万餐饮企业的馋猫点点就餐系统。
+    </text>
+    <view class="cat">
+      <image class='cat-one' src='../../images/cat-one.png'>
+      </image>
+      <image class='cat-two' src='../../images/cat-two.png'>
+      </image>
+    </view>
+  </view>
+</view>

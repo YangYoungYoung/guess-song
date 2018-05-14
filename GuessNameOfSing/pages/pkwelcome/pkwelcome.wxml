@@ -1,0 +1,24 @@
+<!--pages/pkwelcome/pkwelcome.wxml-->
+<view class="main">
+  <view class="left-content">
+    <view class="{{showView?'zuolan_hide':'zuolan_show'}}">
+      <image src="../../images/pk_welcome_blue.png" mode="widthFix" />
+    </view>
+
+    <view class="{{showView4?'my_avatar_hide':'my_avatar_show'}}">
+      <image class="myimage" src="{{userInfo.avatarUrl}}"></image>
+    </view>
+  </view>
+
+  <text class="{{showView3?'pk_hide':'pk_show'}}">pk</text>
+  <view class="right-content">
+    <view class="{{showView2?'youfen_hide':'youfen_show'}}">
+      <image src="../../images/pk_welcome_pink.png" mode="widthFix" />
+    </view>
+
+    <view class="{{showView4?'user_avatar_hide':'user_avatar_show'}}">
+      <image src="{{userInfo.avatarUrl}}"></image>
+    </view>
+  </view>
+  <image class="{{showView4?'welcome-cat-hide':'welcome-cat'}}" src="../../images/logo4.png"></image>
+</view>

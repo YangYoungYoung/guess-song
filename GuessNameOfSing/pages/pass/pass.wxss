@@ -1,0 +1,78 @@
+/* pages/pass/pass.wxss */
+.containerpass{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.type{
+  margin-left: 100rpx;
+  margin-top: 40rpx;
+  height: 150rpx;
+  width: 400rpx;
+}
+
+.start{
+  background-color: #f4f078;
+  border-radius: 100rpx;
+  margin-top: 30rpx;
+  width: 400rpx;
+  height: 100rpx;
+  font-family: "黑体";
+  font-size: 40rpx;
+  color: #f35a3c;
+  font-weight: 800;
+  display: flex;  
+  flex-direction: column;  
+  align-items: center;
+  justify-content: center;
+}
+
+.userinfo {  
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  width: 600rpx;
+  height: 660rpx;
+  background-color: #fc9c9d;
+  border-radius: 30rpx;
+}  
+  
+.avatar {  
+  margin-top: 100rpx;
+  width: 128rpx;  
+  height: 128rpx;  
+ 
+  border-radius: 50%;  
+}  
+  
+.nickname { 
+  margin-top: 44rpx; 
+  color: white; 
+  font-size: 40rpx; 
+}  
+.guan{
+  margin-top: 20rpx; 
+  align-items: center; 
+  color: white;
+  font-size: 40rpx;
+} 
+.number{
+  color: yellow;
+  font-size: 55rpx;
+}
+.cat{
+  direction: flex;
+  flex-direction: row;
+}
+.left{
+  height: 250rpx;
+  width:200rpx;
+  margin-right: 300rpx;
+}
+.right{
+  height: 250rpx;
+  width:200rpx;
+}

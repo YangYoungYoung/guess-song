@@ -1,0 +1,45 @@
+<!--pages/home/home.wxml-->
+<view class='home-view'>
+
+  <view class="home-user-view">
+    <view class='home-userleft'>
+      <image class="userinfo-image" src="{{userInfo.avatarUrl}}"></image>
+      <view class="userinfo-nickname">
+        <text class="userinfo-nicknametext">{{userInfo.nickName}}</text>
+      </view>
+    </view>
+    <view class='userinfo-right'>
+      <image class='userinfo-userinfo-musicnumlogo' src='../../images/home_musiclogo.png' mode='widthFix'></image>
+      <text class='userinfo-musicnum'>{{musicValue}}</text>
+    </view>
+  </view>
+
+  <view class="home-pkstylebtn" bindtap="pkbtnclick">
+    <image class='home-pk-text' src='../../images/home_pktext_bg.png' mode='widthFix' />
+    <image class='home-pk-image' src='../../images/logo1.png' mode='widthFix'></image>
+  </view>
+
+  <view class="home-passbtn" bindtap="passbtnclick">
+    <image class='home-pk-text' src='../../images/home_pass_text.png' mode='widthFix' />
+    <image class='home-pk-image' src='../../images/logo2.png' mode='widthFix'></image>
+  </view>
+
+  <view class="home-bottomview" style="flex-direction:row;">
+    <view class="home-rank" bindtap="rankclick">
+      <text class="rank-text">{{ranktext}}</text>
+      <view class="rank-view">
+        <image class="rank-image" src='../../images/home_bottom_rank.png' mode="widthFix"></image>
+      </view>
+    </view>
+    <button class="home-rank" open-type="contact">
+      <text class="contact-text">{{moretext}}</text>
+        <image class="home-moreimage" src='../../images/logo3.png' mode='widthFix'></image>
+    </button>
+    <view class="home-rank" bindtap="helperclick">
+      <text class="rank-text">{{abouttext}}</text>
+      <view class="aboutview">
+        <image class="home-aboutimage" src='../../images/logo4.png' mode='widthFix'></image>
+      </view>
+    </view>
+  </view>
+</view>

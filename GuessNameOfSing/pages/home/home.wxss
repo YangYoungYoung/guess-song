@@ -1,0 +1,151 @@
+/* pages/home/home.wxss */
+
+page {
+  height: 100%;
+  width: 100%;
+}
+
+.home-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-user-view {
+  display: flex;
+  flex-direction: row;
+  width: 620rpx;
+  background-color: #e473e7;
+  height: 144rpx;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-userleft {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.userinfo-image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 20rpx;
+  border-radius: 50%;
+  background-color: white;
+  background-size: cover;
+  border: 6rpx solid #fff;
+}
+
+.userinfo-nickname {
+  display: block;
+  color: white;
+  margin-left: 18rpx;
+}
+
+.userinfo-nicknametext {
+  width: 100%;
+  display: block;
+  font-size: 28rpx;
+}
+
+.userinfo-right {
+  display: flex;
+  flex-direction: row;
+}
+
+.userinfo-userinfo-musicnumlogo {
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 20rpx;
+}
+
+.userinfo-musicnum {
+  font-weight: bold;
+  color: yellow;
+  font-size: 36rpx;
+  margin-right: 36rpx;
+}
+
+.home-pkstylebtn {
+  display: flex;
+  flex-direction: row;
+  width: 610rpx;
+  background-color: #69cfff;
+  height: 240rpx;
+  border-radius: 10px;
+  align-items: center;
+  margin-top:102rpx;
+}
+
+.home-passbtn{
+  display: flex;
+  flex-direction: row;
+  width: 610rpx;
+  background-color: #fe7e9f;
+  height: 240rpx;
+  border-radius: 10px;
+  align-items: center;
+  margin-top:102rpx;
+}
+.home-pk-text{
+  width: 348rpx;
+  height: 56rpx;
+  margin-left: 53rpx;
+}
+
+.home-pk-image{
+ width: 128rpx;
+  height: 146rpx;
+  margin-left: 30rpx;
+}
+.home-bottomview{
+  width: 610rpx;
+  height: 170rpx;
+  margin-top: 102rpx;
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  justify-content:space-between;
+  
+}
+
+.home-rank{
+  width: 170rpx;
+  height: 170rpx;
+  background-color: #9b6af9;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rank-text{
+  width: 100%;
+  font-size: 32rpx;
+  color: white;
+  margin-top: 15rpx;
+}
+
+.contact-text{
+  width: 100%;
+  font-size: 32rpx;
+  color: white;
+  
+}
+.rank-image{
+  width: 170rpx;
+  height: 102rpx;
+  margin-top: 16rpx;
+}
+
+.home-moreimage{
+  width: 132rpx;
+  height: 108rpx;
+  margin-top: 10rpx;
+}
+.home-aboutimage{
+  width: 80rpx;
+  height: 108rpx;
+  margin-top: 10rpx;
+}

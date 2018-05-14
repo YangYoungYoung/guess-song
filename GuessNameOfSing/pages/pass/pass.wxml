@@ -1,0 +1,18 @@
+<!--pages/pass/pass.wxml-->
+<view class='containerpass'>
+<view>
+  <image class='type' src='../../images/pass_type.png'></image>  
+  <view class='userinfo'>
+    <image class="avatar" src='{{userInfo.avatarUrl}}'></image>  
+    <view class="nickname">{{userInfo.nickName}}   已完成</view> 
+    <view class='guan'>第 <text class="number"> {{gameNumber+1}}</text> 关</view>
+    <view class='start' bindtap='navgeteDail'>
+      <text>开始游戏</text>
+    </view>
+  </view>
+</view>
+<view class='cat'>
+  <image class='left' src='../../images/pass_left.png'></image>
+  <image class='right' src='../../images/pass_right.png'></image>
+</view>
+  </view>

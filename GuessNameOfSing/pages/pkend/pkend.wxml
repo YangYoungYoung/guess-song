@@ -1,0 +1,42 @@
+<!--pages/pkend/pkend.wxml-->
+<view class="main">
+  <view class="all-player">
+    <view class="myview">
+      <view class="leftview">
+        <image class="leftimage" src="../../images/pk_leftimg.png" mode="widthFix"></image>
+      </view>
+      <image class="myimage" src="{{userInfo.avatarUrl}}"></image>
+      <view class="userinfo-left">
+        <text class="username">{{userInfo.nickName}}</text>
+        <text class="userscore">100分</text>
+      </view>
+    </view>
+    <view class="otheruserview">
+      <view class="rightview">
+        <image class="rightimage" src="../../images/pk_rightimg.png" mode="widthFix"></image>
+      </view>
+      <image class="userimage"></image>
+      <view class="userinfo-left">
+        <text class="username">德玛西亚</text>
+        <text class="userscore">100分</text>
+      </view>
+    </view>
+  </view>
+  <view class="resule-view">
+    <image class="result" src="../../images/pk_success.png" mode="widthFix"></image>
+  </view>
+  <view class="musicnum">
+    <image class="music-logo" src="../../images/music_logo.png"></image>
+    <text class="music-num">+100</text>
+  </view>
+  <view class="logo-view">
+    <image class="end-logo" src="../../images/companylogo.png" mode="widthFix"></image>
+  </view>
+  <view class="keeppk" bindtap="goonpk">
+    <text class="keeptext">继续挑战</text>
+  </view>
+  <view class="share" bindtap="share">
+    <image class="music-logo" src="../../images/music_logo.png"></image>
+    <text class="share-text">炫耀成绩</text>
+  </view>
+</view>

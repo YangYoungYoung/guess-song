@@ -1,0 +1,45 @@
+<!--pages/ranking/ranking.wxml-->
+<view class='container_ranking'>
+  <view class='one'>
+    <text class='show_text'>世界排行</text>
+  </view>
+  <view>
+    <scroll-view scroll-y="true" style="height: 800rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-top="{{scrollTop}}">
+      <view class='box' wx:for-items="{{list}}" wx:key="{{item.id}}">
+        <view class='box2'>
+          <image wx:if='{{item.id==1}}' class='crown' src='../../images/crown1.png'></image>
+          <image wx:elif='{{item.id==2}}' class='crown' src='../../images/crown2.png'></image>
+          <image wx:elif='{{item.id==3}}' class='crown' src='../../images/crown3.png'></image>
+          <text wx:else class='crown-end'>{{item.id}}</text>
+          <image class="avatar" src='{{item.avatar}}'></image>
+          <view class="nickname">{{item.name}}</view>
+        </view>
+
+        <view class='num'>
+          <text class='text'>胜</text>
+          <text class='text1'>{{item.grade+1}}</text>
+          <text class='text'>场</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="bottom">
+    <view class='black'>
+      <view class="nickname2">{{userInfo.nickName}}</view>
+      <view class='num2'>
+        <text class='text1'>胜</text>
+        <text class='text1'>{{grade+1}}</text>
+        <text class='text1'>场</text>
+      </view>
+      <view class='mine'>
+        <text class='number'>{{mygrade}}</text>
+        <text class='mine'>我的排名</text>
+      </view>
+    </view>
+    <view class='show'>
+      <button class='show_button' open-type="share" bindtap='onShareAppMessage'>
+        炫耀一下+20</button>
+      <image class='image_note' src='../../images/note.png'></image>
+    </view>
+  </view>
+</view>

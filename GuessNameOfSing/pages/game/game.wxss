@@ -1,0 +1,377 @@
+/* pages/game/game.wxss */
+.containergame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rpx;
+}
+
+.one {
+  background-color: #440063;
+  border-radius: 100rpx;
+  width: 300rpx;
+  height: 88rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ziti {
+  text-align: center;
+  color: white;
+  font-size: 40rpx;
+}
+
+.text_ziti {
+  color: lightgreen;
+  font-size: 50rpx;
+}
+
+.cat {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20rpx;
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.triangle {
+  margin-top: 150rpx;
+  margin-left: 12rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.bt_start {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.center {
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.hint {
+  background-color: #56f9e9;
+  border-radius: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 40rpx;
+  width: 150rpx;
+  height: 70rpx;
+}
+
+.share {
+  background-color: #ccf6f2;
+  border-radius: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 40rpx;
+  width: 150rpx;
+  height: 70rpx;
+}
+
+.share_button {
+  width: 150rpx;
+  height: 70rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: #56f9e9;
+  border-radius: 100rpx;
+  font-weight: 700;
+  font-size: 36rpx;
+  font-family: "黑体";
+}
+
+.share_button::after {
+  border: none;
+}
+
+.help_button {
+  width: 250rpx;
+  height: 70rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: #56f9e9;
+  border-radius: 100rpx;
+  font-weight: 700;
+  font-size: 36rpx;
+  font-family: "黑体";
+}
+
+.help_button::after {
+  border: none;
+}
+
+.help {
+  padding-right: 20rpx;
+  background-color: #56f9e9;
+  border-radius: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  height: 70rpx;
+  width: 250rpx;
+}
+
+.ziti2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 36rpx;
+  font-family: "黑体";
+}
+
+.note {
+  margin-top: 10rpx;
+  width: 36rpx;
+  height: 36rpx;
+  padding-bottom: 20rpx;
+}
+
+.name {
+  display: inline-flex;
+}
+
+.box1 {
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.end {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+}
+
+.last {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  margin-left: 40rpx;
+}
+
+.box2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.bright789_view_hide {
+  display: none;
+}
+
+.bright789_view_show {
+  display: block;
+}
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 540rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: -180rpx 105rpx;
+  border-radius: 36rpx;
+  text-align: center;
+  align-items: center;
+}
+
+.modal-title {
+  height: 100rpx;
+  font-size: 36rpx;
+  color: #030303;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  border-top: 1px solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+}
+
+.btn-confirm {
+  width: 100%;
+  color: #ec5300;
+  text-align: center;
+}
+
+.confusingwords {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 20rpx;
+  background-color: #01e4f4;
+  margin-top: 30rpx;
+  margin-left: 10rpx;
+  margin-right: 13rpx;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  margin: -400rpx 105rpx;
+}
+
+.answerok {
+  width: 400rpx;
+  height: 80rpx;
+}
+
+.background {
+  height: 500rpx;
+  width: 500rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.textnum {
+  margin-top: 50rpx;
+  font-weight: 800;
+  font-family: '黑体';
+  font-size: 50rpx;
+  display: block;
+}
+
+.blue {
+  background-color: blue;
+  border-radius: 100rpx;
+  margin-top: 40rpx;
+  width: 350rpx;
+  height: 80rpx;
+  display: block;
+  text-align: center;
+}
+
+.bluecontent {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.textone {
+  font-size: 37rpx;
+  color: white;
+  text-align: center;
+  display: block;
+}
+
+.heart {
+  margin-top: 19rpx;
+  margin-left: 10rpx;
+  width: 40rpx;
+  height: 35rpx;
+  text-align: center;
+  display: block;
+}
+
+.bottom {
+  margin-top: 40rpx;
+  height: 60rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.note {
+  width: 40rpx;
+  height: 40rpx;
+  text-align: center;
+  align-items: center;
+}
+
+.add {
+  color: red;
+  margin-left: 10rpx;
+  align-items: center;
+  text-align: center;
+}
+
+.next {
+  background-color: #ff397b;
+  border-radius: 100rpx;
+  margin-top: 100rpx;
+  height: 80rpx;
+  width: 500rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  color: white;
+  font-weight: bold;
+}
+.modalziti{
+  color: black;
+  text-align: center;
+  font-size: 40rpx;
+  margin-top: 80rpx;
+}

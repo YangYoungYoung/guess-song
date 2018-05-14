@@ -1,0 +1,42 @@
+<!--pages/pkstyle/pkstyle.wxml-->
+<view class="main">
+  <view class="title">
+    <view class="leftview">
+      <image class="blueview" src="../../images/pk_blue.png"></image>
+      <image class="userimage" src="{{userInfo.avatarUrl}}"></image>
+      <text class="username">{{userInfo.nickName}}</text>
+    </view>
+    <view class="progress">
+      <canvas class="progress_bg" canvas-id="canvasProgressbg"> </canvas>
+      <canvas class="progress_canvas" canvas-id="canvasProgress"> </canvas>
+      <text class="progress_txt">{{ countDownNumber }}</text>
+    </view>
+    <view class="rightview">
+      <image class="pinkview" src="../../images/pk_pink.png"></image>
+      <image class="rivalimage" src="{{userInfo.avatarUrl}}"></image>
+      <text class="username">{{userInfo.nickName}}</text>
+    </view>
+  </view>
+  <view class="content">
+    <view class="content_left">
+      <text class="userscore">100</text>
+      <image class="pkframe" src="../../images/pk_frame.png" mode="widthFix"></image>
+    </view>
+    <view class="gamechoose" wx:for="{{list}}" wx:for-item="itemName">
+      <button class="choosebtn"></button>
+    </view>
+    <view class="content_right">
+      <text class="userscore">100</text>
+      <image class="pkframe" src="../../images/pk_frame.png"></image>
+    </view>
+  </view>
+  <view class="bottomview">
+    <view class="leftcat" animation="{{animationData}}">
+      <image class="pk_cat" src="../../images/pk_left.png"></image>
+    </view>
+    <view class="rivalview" animation="{{animationData}}">
+      <image class="pk_cat" src="../../images/pk_right.png"></image>
+    </view>
+
+  </view>
+</view>

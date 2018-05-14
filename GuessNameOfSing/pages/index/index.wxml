@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="all">
+  <view class="title">
+    <image class="gamename" src="../../images/welcome_name.png" mode="widthFix"></image>
+  </view>
+  <view class="logo">
+    <image class="gamelogo" src="../../images/welcome_logo.png" mode="widthFix"></image>
+  </view>
+
+
+  <button class="game-start-bt" bindtap="startgame">开始游戏</button>
+</view>

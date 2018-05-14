@@ -1,0 +1,51 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+  width: 100%;
+}
+.all{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.title{
+  width: 100%;
+  height: 254rpx;
+  margin-top: 20rpx;
+  align-items: center;
+  text-align: center;
+  display: block;
+  
+}
+.gamename{
+  width: 346rpx;
+  height: 100%;
+}
+.logo{
+  width: 100%;
+  height: 442rpx;
+  display: block;
+  align-items: center;
+  text-align: center;
+  margin-top: 52rpx;
+}
+
+.gamelogo{
+  width: 408rpx;
+  height: 100%;
+}
+.game-start-bt {
+  width: 260rpx;
+  height: 80rpx;
+  border-radius: 6rpx;
+  margin-top: 70rpx;
+  font-size: 28rpx;
+  background-color: #c33;
+  color: white;
+  overflow: hidden;
+}
+
+.game-start-bt::after {
+  border: 2rpx solid #c33;
+}
