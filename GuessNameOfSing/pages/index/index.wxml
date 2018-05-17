@@ -6,7 +6,11 @@
   <view class="logo">
     <image class="gamelogo" src="../../images/welcome_logo.png" mode="widthFix"></image>
   </view>
+  <button 
+    wx:if="{{canIUse}}" 
+    open-type="getUserInfo" 
+    bindgetuserinfo="bindGetUserInfo"
+    class="game-start-bt"
+>授权登录</button>
 
-
-  <button class="game-start-bt" bindtap="startgame">开始游戏</button>
 </view>
