@@ -164,20 +164,16 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-right: 30rpx;
+  
 }
-.image_xuanyao{
-  color: white;
-  width: 250rpx;
-  height: 40rpx;
-}
+
 .image_note{
   width: 50rpx;
-  height: 50rpx
+  height: 50rpx;
+  padding-right: 50rpx;
+  margin-left: -50rpx;
 }
-.show_box{
-  display: block;
-}
+
 .show_button{
   display: block;  
   flex-direction: column;  
@@ -187,9 +183,9 @@
   background-color:#ff3a7b;
   border-radius: 100rpx;
   color: white;
-  width: 300rpx;
-  height: 80rpx;
-  margin-bottom: 10rpx;
+  width: 250rpx;
+  height: 60rpx;
+  margin-bottom: 20rpx;
 }
 .show_button::after{
   border: none;

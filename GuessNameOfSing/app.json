@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/pkstyle/pkstyle",
+    "pages/pkend/pkend",
     "pages/home/home",
     "pages/game/game",
-    "pages/pkstyle/pkstyle",
     "pages/pkwelcome/pkwelcome",
     "pages/pkwating/pkwating",
-    "pages/pkend/pkend",
+    
     "pages/pass/pass",
     "pages/logs/logs",
     "pages/rank/rank",

@@ -55,24 +55,72 @@
 </view>
 <!-- 正确提示框 -->
 <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+
 <view class="box" wx:if="{{showModal}}">
-  <image class='answerok' src='../../images/answer_ok.png'></image>
-  <view class="background" style="background-image: url('https://xyt.xuanyutong.cn/Servlet/image/white_cat.png');background-size: cover;background-repeat:round">
-    <view class='modalziti'>第
-      <text class='text_ziti'>{{grade+1}}</text> 首
-    </view>
-    <view class='blue'>
-      <view class='bluecontent'>
-        <text class='textone'>{{songname}}</text>
-        <image class='heart' src='../../images/heart.png'></image>
+
+  <!-- 广告 -->
+  <block wx:if="{{(grade+1)%5==0}}">
+
+
+    <image class='answerok' src='../../images/answer_ok.png'></image>
+    <view class="background" style="background-image: url('https://xyt.xuanyutong.cn/Servlet/image/white_cat.png');background-size: cover;background-repeat:round">
+      <view class='modalziti'>第
+        <text class='text_ziti'>{{grade+1}}</text> 首</view>
+      <view class='blue'>
+        <view class='bluecontent'>
+          <text class='textone'>{{songname}}</text>
+          <image class='heart' src='../../images/heart.png'></image>
+        </view>
+      </view>
+      <view class='bottom'>
+        <image class='note' src='../../images/note_red.png'></image>
+        <text class='add'>+10</text>
       </view>
     </view>
-    <view class='bottom'>
-      <image class='note' src='../../images/note.png'></image>
-      <text class='add'>+10</text>
+    <view class="next" bindtap="toAd">
+      <text class='text'>下一题</text>
     </view>
-  </view>
-  <view class="next" bindtap="toNext">
-    <text class='text'>下一题</text>
-  </view>
+
+    <view class="modal-box" hidden="{{flagAd}}">
+
+      <view class="modal-body">
+
+
+        <!-- 两个block需要在后台完善 -->
+        <block wx:if="{{(grade+1)%5==0}}">
+          <image class='ad' src="{{imageUrlpic}}"></image>
+        </block>
+        <view class='know'>
+          <view class="next1" bindtap="toNext">
+            <text class='text'>知道了</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+
+
+  <!-- 没有广告位的 -->
+  <block wx:else>
+
+    <image class='answerok' src='../../images/answer_ok.png'></image>
+    <view class="background" style="background-image: url('https://xyt.xuanyutong.cn/Servlet/image/white_cat.png');background-size: cover;background-repeat:round">
+      <view class='modalziti'>第
+        <text class='text_ziti'>{{grade+1}}</text> 首</view>
+      <view class='blue'>
+        <view class='bluecontent'>
+          <text class='textone'>{{songname}}</text>
+          <image class='heart' src='../../images/heart.png'></image>
+        </view>
+      </view>
+      <view class='bottom'>
+        <image class='note' src='../../images/note_red.png'></image>
+        <text class='add'>+10</text>
+      </view>
+    </view>
+    <view class="next" bindtap="toNext">
+      <text class='text'>下一题</text>
+    </view>
+  </block>
 </view>

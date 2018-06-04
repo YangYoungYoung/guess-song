@@ -1,5 +1,6 @@
 /**app.wxss**/
-
+ /* 引用toast的样式 */
+@import "./component/toastTest/toastTest.wxss"; 
 .container {
   height: 100%;
   display: flex;

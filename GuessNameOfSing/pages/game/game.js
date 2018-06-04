@@ -5,6 +5,8 @@ var isPlay = false
 var music = null;
 var musicName
 var nameHouse
+var imageUrlpic
+var imageUrl
 var backgroundAudioManager = wx.getBackgroundAudioManager()
 var list_name = []
 var list_all = []
@@ -21,6 +23,7 @@ var hintTimes = 0;
 var checkTheAswer = false;
 var checkFull = false;
 var next = false;
+var ad = false;
 var passnum = -1;
 var url;
 Page({
@@ -32,9 +35,18 @@ Page({
     gameNumber1: 1,
     //animationData: {},
     flag: true,
+    flagAd: true,
     imageUrl: "../../images/bt_triangle.png",
     showView: true,
     grade: 0,
+    // imageUrlpicliangdian: "https://xyt.xuanyutong.cn/Servlet/image/liangdian.png",
+    // imageUrlpicxuanyutong: "https://xyt.xuanyutong.cn/Servlet/image/xuanyutong.png",
+    // imageUrlpicliquantouzi: "https://xyt.xuanyutong.cn/Servlet/image/liquantouzi.png",
+    // imageUrlpicshimeijiguoji: "https://xyt.xuanyutong.cn/Servlet/image/shimeijiguoji.png",
+    // imageUrlpicjinmutangquan: "https://xyt.xuanyutong.cn/Servlet/image/jinmutangquan.png",
+    // imageUrlpicxingzuoguanggao: "https://xyt.xuanyutong.cn/Servlet/image/xingzuoguanggao.png",
+    // imageUrlpicquanyoutongxun: "https://xyt.xuanyutong.cn/Servlet/image/quanyoutongxun.png",
+
   },
 
   /**
@@ -74,8 +86,12 @@ Page({
       next = false;
       isPlay = false;
       url = 'https://xyt.xuanyutong.cn/Servlet/nextLevelServlet'
+      // url = 'http://192.168.0.153:8080/Servlets/nextLevelServlet'
+      // url = 'http://192.168.0.146:8080/Servlet/nextLevelServlet'
     } else {
       url = 'https://xyt.xuanyutong.cn/Servlet/selectMusicByOpenid'
+      //url = 'http://192.168.0.153:8080/Servlets/selectMusicByOpenid'
+      // url = 'http://192.168.0.146:8080/Servlet/selectMusicByOpenid'
     }
     // console.log("URL是" + url);
     wx.request({
@@ -88,20 +104,22 @@ Page({
       },
       success: function (res) {
         passnum = res.data.id;
-        // console.log("关卡数是" + passnum);
+        console.log("关卡数是" + res.data.namehouse);
         that.setData({
           voice: res.data.voice,
           namehouse: res.data.namehouse,
-          grade: res.data.id
+          grade: res.data.id,
+          imageUrlpic: res.data.url
         });
         music = res.data.voice
         musicName = res.data.musicname
         nameHouse = res.data.namehouse
+        //imageUrlpic = res.data.url
         that.setData({
           songname: musicName
         })
-        // console.log(res.data)
-        // console.log(nameHouse)
+        console.log(musicName)
+        console.log("获取到的广告是："+ res.data.url)
 
         //获取歌名框
         // list_name = {}
@@ -121,6 +139,7 @@ Page({
           obj.id = j;
           obj.name = nameHouse[j]
           array.push(obj);
+          // console.log("============"+arr);
           that.setData({
             list_all: array
           })
@@ -284,9 +303,11 @@ Page({
    */
   toNext: function () {
     this.hideModal();
+    this.setData({ flagAd: true })
     next = true;
     this.onShow();
   },
+
   /**
   * 判断用户答案是否正确
   */
@@ -411,7 +432,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '馋猫猜歌名',
+      title: '老铁，超好玩的猜歌游戏了解一下',
       desc: '最流行的猜歌小游戏',
       path: '/pages/home/home?id=123',
       success(e) {
@@ -449,5 +470,13 @@ Page({
       },
       complete() { }
     }
-  }
+  },
+  /**
+ * 广告弹出框
+ */
+  toAd: function () {
+    this.setData({ flagAd: false })
+  },
+
+
 })

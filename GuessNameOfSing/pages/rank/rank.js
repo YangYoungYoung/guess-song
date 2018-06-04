@@ -41,7 +41,7 @@ Page({
         openid: wx.getStorageSync('openid')
       },
       success: function (res) {
-        // console.log(res.data)
+        console.log(res.data.orderGradelist)
         that.setData({
           name: res.data.orderGradelist[0].username,
           mygrade: res.data.queryUserlist[0].rowNo,

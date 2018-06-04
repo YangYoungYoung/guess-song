@@ -1,6 +1,8 @@
 // pages/pkwelcome/pkwelcome.js
 var app = getApp()
 var time=800;
+var int;
+var oid;
 Page({
   data: {
     showView: true,
@@ -8,10 +10,58 @@ Page({
     showView3: true,
     showView4: true,
     userInfo: {},
-    countDownNumber: 3,
-    timerId: 0
+    countDownNumber: 2,
+    timerId: 0,
+    imageUrl:''
   },
   onLoad: function (options) {
+    // console.log("======" + wx.getStorageSync('openid'));
+    var that = this;
+    wx.request({
+      // url: 'https://xyt.xuanyutong.cn/Servlet/selectPkUserServlet',
+      url: 'http://192.168.0.146:8080/Servlet/selectPkUserServlet',
+      method: "POST",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      data: {
+        openid: wx.getStorageSync('openid')
+      },
+      success: function (res) {
+        console.log("获取头像" + res.data.avatar);
+        console.log("获取对方id:" + res.data.oid);
+        oid = res.data.oid;
+        if(oid==null){
+          clearInterval(int);
+          console.log("匹配失败");
+          wx.showModal({
+            title: '提示',
+            content: '当前没有匹配到对手，请稍后再试',
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+                wx.redirectTo({
+                  url: '../home/home',
+                })
+              }
+              else {
+                wx.redirectTo({
+                  url: '../home/home',
+                })
+              }
+            }
+          })
+        }
+        else{
+
+        wx.setStorageSync('oid', res.data.oid); // 单独存储对方的openid
+       
+        that.setData({
+          imageUrl: res.data.avatar
+        })
+        }
+      }
+    })
     // 生命周期函数--监听页面加载 
     showView: (options.showView == "true" ? true : false)
     var that = this;
@@ -88,10 +138,12 @@ Page({
         })
       }
     }, 1000);
+    int = timer;
     page.setData({
       timerId: timer
     })
 },
+
   getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -100,4 +152,55 @@ Page({
       hasUserInfo: true
     })
   },
+  /**
+   * 当页面销毁时调用
+   */
+  onUnload: function () {
+    console.log('index---------onUnload')
+    clearInterval(int);
+    // wx.redirectTo({
+    //   url: '../home/home',
+    // })
+    // this.close();
+  },
+  // /**
+  // * 放弃游戏
+  // */
+  // close: function () {
+  //   var that = this;
+  //   wx.request({
+  //     url: 'https://xyt.xuanyutong.cn/Servlet/CloseStateServlet',
+  //     method: "POST",
+  //     header: {
+  //       'content-type': 'application/x-www-form-urlencoded',
+  //     },
+  //     data: {
+  //       openid: wx.getStorageSync('openid'),
+  //       state: 0
+  //     },
+  //     success: function (res) {
+  //       // that.setData({
+  //       //   musicValue: res.data.musicValue,
+  //       // });
+  //       console.log("======" + res);
+  //       console.log("======" + res.data.state);
+  //       if (res.data.state == 0) {
+  //         console.log("放弃匹配成功");
+  //         // clearInterval(timer);
+  //         wx.showModal({
+  //           title: '提示',
+  //           content: '您放弃了本局游戏,但是依然会扣除音乐值',
+  //           success: function (res) {
+  //             if (res.confirm) {
+  //               console.log('用户点击确定')
+  //             }
+  //           }
+  //         })
+  //       }
+  //       else {
+  //         console.log("放弃匹配失败");
+  //       }
+  //     }
+  //   })
+  // }
 }) 

@@ -7,26 +7,33 @@
       <text class="username">{{userInfo.nickName}}</text>
     </view>
     <view class="progress">
-      <canvas class="progress_bg" canvas-id="canvasProgressbg"> </canvas>
+       <canvas class="progress_bg" canvas-id="canvasProgressbg"> </canvas> 
       <canvas class="progress_canvas" canvas-id="canvasProgress"> </canvas>
       <text class="progress_txt">{{ countDownNumber }}</text>
     </view>
     <view class="rightview">
       <image class="pinkview" src="../../images/pk_pink.png"></image>
-      <image class="rivalimage" src="{{userInfo.avatarUrl}}"></image>
-      <text class="username">{{userInfo.nickName}}</text>
+      <image class="rivalimage" src="{{opponentimage}}"></image>
+      <text class="username">{{opponentname}}</text>
     </view>
   </view>
+  <!-- ×Ô¶¨ÒåToast -->
+  <import src="../../component/toastTest/toastTest.wxml"/>
+  <template is="toast" data="{{ ..._toast_ }}"/>
   <view class="content">
     <view class="content_left">
-      <text class="userscore">100</text>
+      <text class="userscore">{{userscore}}</text>
       <image class="pkframe" src="../../images/pk_frame.png" mode="widthFix"></image>
     </view>
-    <view class="gamechoose" wx:for="{{list}}" wx:for-item="itemName">
-      <button class="choosebtn"></button>
+    <view class='musicbtn'>
+      <block  wx:for-items="{{list}}" wx:key="{{item.id}}">
+          <button class="choosebtn" bindtap='clickbtn' id="{{item.id}}" data-text="{{item.name}}"
+           disabled='{{disable}}'style="{{index==item.id?rightbtn:falsebtn}}">{{item.name}}</button>
+
+      </block>
     </view>
     <view class="content_right">
-      <text class="userscore">100</text>
+      <text class="userscore">{{yourscore}}</text>
       <image class="pkframe" src="../../images/pk_frame.png"></image>
     </view>
   </view>
@@ -34,9 +41,10 @@
     <view class="leftcat" animation="{{animationData}}">
       <image class="pk_cat" src="../../images/pk_left.png"></image>
     </view>
-    <view class="rivalview" animation="{{animationData}}">
+    <view class="rivalview" animation="{{rivalanimation}}">
       <image class="pk_cat" src="../../images/pk_right.png"></image>
     </view>
-
   </view>
+
+  
 </view>

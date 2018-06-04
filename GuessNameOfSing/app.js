@@ -1,5 +1,7 @@
 //app.js
+import { ToastPannel } from './component/toastTest/toastTest'
 App({
+  ToastPannel,
   onLaunch: function (ops) {
     //设置的分享 带参数的
     if (ops.scene == 1044) {
@@ -94,7 +96,7 @@ App({
     const updateManager = wx.getUpdateManager()
     updateManager.onCheckForUpdate(function (res) {
       // 请求完新版本信息的回调
-      console.log(res.hasUpdate)
+      console.log("是否有新版本"+res.hasUpdate)
     })
     updateManager.onUpdateReady(function () {
       wx.showModal({

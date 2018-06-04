@@ -8,26 +8,27 @@
       <image class="myimage" src="{{userInfo.avatarUrl}}"></image>
       <view class="userinfo-left">
         <text class="username">{{userInfo.nickName}}</text>
-        <text class="userscore">100分</text>
+        <text class="userscore">{{userscore}}</text>
       </view>
     </view>
     <view class="otheruserview">
       <view class="rightview">
         <image class="rightimage" src="../../images/pk_rightimg.png" mode="widthFix"></image>
       </view>
-      <image class="userimage"></image>
+      <image class="userimage" src="{{opponentimage}}"></image>
       <view class="userinfo-left">
-        <text class="username">德玛西亚</text>
-        <text class="userscore">100分</text>
+        <text class="username">{{opponentname}}</text>
+        <text class="userscore">{{opponentscore}}</text>
       </view>
     </view>
   </view>
   <view class="resule-view">
-    <image class="result" src="../../images/pk_success.png" mode="widthFix"></image>
+    <image wx:if="{{win==1}}" class="result" src="../../images/pk_success.png" mode="widthFix"></image>
+    <image wx:else class="result" src="../../images/pk_fail.png" mode="widthFix"></image>
   </view>
-  <view class="musicnum">
+  <view class="musicnum" wx:if="{{win==1}}">
     <image class="music-logo" src="../../images/music_logo.png"></image>
-    <text class="music-num">+100</text>
+    <text class="music-num">+40</text>
   </view>
   <view class="logo-view">
     <image class="end-logo" src="../../images/companylogo.png" mode="widthFix"></image>
@@ -35,8 +36,13 @@
   <view class="keeppk" bindtap="goonpk">
     <text class="keeptext">继续挑战</text>
   </view>
-  <view class="share" bindtap="share">
+  <!-- <view class="share" bindtap="onShareAppMessage">
     <image class="music-logo" src="../../images/music_logo.png"></image>
     <text class="share-text">炫耀成绩</text>
-  </view>
+  </view> -->
+   <view class='show'>
+      <button class='show_button' open-type="share" bindtap='onShareAppMessage'>
+        炫耀一下+20</button>
+      <image class='image_note' src='../../images/note.png'></image>
+    </view>
 </view>

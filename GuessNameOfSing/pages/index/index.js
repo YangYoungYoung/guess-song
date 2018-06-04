@@ -105,6 +105,8 @@ Page({
     app.globalData.userInfo = userInfo
     wx.request({
       url: 'https://xyt.xuanyutong.cn/Servlet/userLoginServlet',
+      //  url: 'http://192.168.0.146:8080/Servlet/userLoginServlet',
+    //  url: 'http://192.168.0.153:8080/Servlet/userLoginServlet',
       method: "POST",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -115,8 +117,12 @@ Page({
         username: userInfo.nickName,
       },
       success: function (res) {
+        console.log("访问服务器成功=====" + res.data);
+        console.log("访问服务器成功" + res.data.aa);
+        // console.log("访问服务器成功" + res.data.aa.openid);
         wx.setStorageSync('openid', res.data.aa.openid); // 单独存储openid
         wx.redirectTo({
+          // url: '../home/home?musicValue=' + res.data.aa.musicValue
           url: '../home/home',
         })
 
@@ -132,4 +138,141 @@ Page({
       }
     })
   },
+  // 查看是否授权
+  /************ wx.getSetting({
+     success: function (res) {
+       if (res.authSetting['scope.userInfo']) {
+         wx.getUserInfo({
+           success: function (res) {
+             console.log(res.userInfo)
+             //用户已经授权过
+           }
+         })
+       }
+     }
+   })
+ },
+ bindGetUserInfo: function (e) {
+   
+   app.globalData.userInfo = e.detail.userInfo;
+   console.log(app.globalData.userInfo);
+   if (e.detail.userInfo) {
+     //用户按了允许授权按钮
+     var that = this;
+     wx.request({
+       url: 'https://xyt.xuanyutong.cn/Servlet/userLoginServlet', //登录，获得音乐值
+       method: "POST",
+       header: {
+         'content-type': 'application/x-www-form-urlencoded',
+       },
+       data: {
+         code: e.detail.userInfo.code,//获取openid的话 需要向后台传递code,利用code请求api获取openid
+         avatar: e.detail.userInfo.avatarUrl,//获取头像
+         username: e.detail.userInfo.nickName,
+       },
+       success: function (res) {
+         // wx.setStorageSync("openid", res.data)//可以把openid保存起来,以便后期需求的使用 
+         // console.log("返回数据为：" + res.data.aa.musicValue);//获得音乐值
+         // console.log("返回数据为：" + res.data.aa.openid);//获得openid
+         // console.log('submit success');
+         wx.setStorageSync('openid', res.data.aa.openid); // 单独存储openid
+         wx.redirectTo({
+           url: '../home/home',
+         })
+       },
+       fail: function () {
+         // fail
+         console.log('submit fail');
+       }
+     })
+
+   } else {
+     //用户按了拒绝按钮
+     console.log('submit fail');
+     wx.showModal({
+       title: '提示',
+       content: '小程序功能需要授权才能正确使用哦！请点击“确定”-“用户信息”再次授权',
+       success: function (res) {
+         if (res.confirm) {
+           console.log('用户点击确定');
+           wx.openSetting({
+             success: (res) => {
+               if (res.authSetting['scope.userInfo']) {
+                 var that = this;
+                 wx.request({
+                   url: 'https://xyt.xuanyutong.cn/Servlet/userLoginServlet', //登录，获得音乐值
+                   method: "POST",
+                   header: {
+                     'content-type': 'application/x-www-form-urlencoded',
+                   },
+                   data: {
+                     code: res.code,//获取openid的话 需要向后台传递code,利用code请求api获取openid
+                     avatar: res_user.userInfo.avatarUrl,//获取头像
+                     username: res_user.userInfo.nickName,
+                   },
+                   success: function (res) {
+                     // wx.setStorageSync("openid", res.data)//可以把openid保存起来,以便后期需求的使用 
+                     // console.log("返回数据为：" + res.data.aa.musicValue);//获得音乐值
+                     // console.log("返回数据为：" + res.data.aa.openid);//获得openid
+                     // console.log('submit success');
+                     wx.setStorageSync('openid', res.data.aa.openid); // 单独存储openid
+                   },
+                   fail: function () {
+                     // fail
+                     console.log('submit fail');
+                   }
+                 })
+               }
+             }
+           })
+   }
+       }})}
+   //页面初始化
+   if (app.globalData.userInfo) {
+     wx.redirectTo({
+       url: '../home/home',
+     })
+     this.setData({
+       userInfo: app.globalData.userInfo,
+       hasUserInfo: true,
+     })
+   } else if (this.data.canIUse) {
+     // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+     // 所以此处加入 callback 以防止这种情况
+     app.userInfoReadyCallback = res => {
+       this.setData({
+         userInfo: res.userInfo,
+         hasUserInfo: true
+       })
+     }
+   } else {
+     // 在没有 open-type=getUserInfo 版本的兼容处理
+     wx.getUserInfo({
+       success: res => {
+         app.globalData.userInfo = res.userInfo
+         this.setData({
+           userInfo: res.userInfo,
+           hasUserInfo: true
+         })
+       }
+     })
+   }
+ },
+
+ getUserInfo: function (e) {
+   //console.log(e)
+   app.globalData.userInfo = e.detail.userInfo
+   if (app.globalData.userInfo) {
+     // console.log("e");
+     this.setData({
+       userInfo: e.detail.userInfo,
+       hasUserInfo: true
+     })
+     wx.redirectTo({
+       url: '../home/home',
+     })
+   }else{
+     wx.openSetting();
+   }**************/
+
 })

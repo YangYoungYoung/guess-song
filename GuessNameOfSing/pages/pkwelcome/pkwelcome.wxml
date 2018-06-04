@@ -17,7 +17,7 @@
     </view>
 
     <view class="{{showView4?'user_avatar_hide':'user_avatar_show'}}">
-      <image src="{{userInfo.avatarUrl}}"></image>
+      <image src="{{imageUrl}}"></image>
     </view>
   </view>
   <image class="{{showView4?'welcome-cat-hide':'welcome-cat'}}" src="../../images/logo4.png"></image>

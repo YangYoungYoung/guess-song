@@ -33,7 +33,7 @@
     </view>
     <button class="home-rank" open-type="contact">
       <text class="contact-text">{{moretext}}</text>
-        <image class="home-moreimage" src='../../images/logo3.png' mode='widthFix'></image>
+      <image class="home-moreimage" src='../../images/logo3.png' mode='widthFix'></image>
     </button>
     <view class="home-rank" bindtap="helperclick">
       <text class="rank-text">{{abouttext}}</text>
@@ -43,3 +43,30 @@
     </view>
   </view>
 </view>
+
+
+<block wx:if="{{value>0}}">
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="box" wx:if="{{showModal}}">
+    <image class="login" src="../../images/loginpic.png"></image>
+    <view class="next" bindtap="toNote">
+      <text class='text'>点击领取</text>
+    </view>
+
+    <view class="modal-box" hidden="{{flagNote}}">
+
+      <view class="modal-body">
+
+        <view class="modal-content">
+          <image class="note" src="../../images/note.png"></image>
+          <text class='text1'>+{{value}}</text>
+          <view class="next1" bindtap="toLogin">
+            <text class='text'>好的</text>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+
+</block>

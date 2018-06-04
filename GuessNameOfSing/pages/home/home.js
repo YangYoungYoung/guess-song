@@ -11,18 +11,36 @@ Page({
     ranktext: "排行榜",
     moretext: "小客服",
     abouttext: "小助手",
+    musicValue:0,
+    flagNote:true,
+    value:0,
   },
   //跳转到对战模式
   pkbtnclick: function (e) {
-    // wx.navigateTo({
-    //   url: '../pkwating/pkwating',
+    var that = this
+    if (that.data.musicValue>=20){
+      refresh = true;
+      wx.navigateTo({
+        url: '../pkwating/pkwating',
+      })
+    }
+    else{
+      wx.showModal({
+        title: '提示',
+        content: '您当前音乐值不足20',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
+    }    
+    // wx.showToast({
+    //   title: '敬请期待',
+    //   icon: 'loading',
+    //   duration: 1000,
+    //   mask: true
     // })
-    wx.showToast({
-      title: '敬请期待',
-      icon: 'loading',
-      duration: 1000,
-      mask: true
-    })
   },
   //跳转到传统闯关模式
   passbtnclick: function (e) {
@@ -50,9 +68,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+    // this.setData({
+    //   musicValue: options.musicValue
+    // });
+    this.showDialogBtn();
     var that = this;
+    // if (options.id==1) {
+    //   that.close();
+    // }
+    // console.log("==============" + wx.getStorageSync('openid'));
     wx.request({
       url: 'https://xyt.xuanyutong.cn/Servlet/selectMusicValueServlet',
+      // url: 'http://192.168.0.146:8080/Servlet/selectMusicValueServlet',
       method: "POST",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -61,10 +89,16 @@ Page({
         openid: wx.getStorageSync('openid')
       },
       success: function (res) {
-
         that.setData({
           musicValue: res.data.musicValue,
+          value: res.data.addValue
+          // value:30
         });
+        console.log("每日登录返回值是：" + res.data.addValue);
+        // if (res.data.addValue>0){
+        //   value:res.data.addValue
+        // }
+        // console.log(res.data.addValue)
       },
     })
     if (app.globalData.userInfo) {
@@ -150,5 +184,94 @@ Page({
       },
       complete() { }
     }
-  }
+  },
+/**
+    * 正确弹窗
+    */
+  showDialogBtn: function () {
+    this.setData({
+      showModal: true
+    })
+  },
+  /**
+   * 弹出框蒙层截断touchmove事件
+   */
+  preventTouchMove: function () {
+  },
+  /**
+   * 关闭成功对话框并跳转到下一关
+   */
+  hideModal: function () {
+    this.setData({
+      showModal: false
+    });
+  },
+
+
+  /**
+  * 弹出层函数
+  */
+  //出现
+  show: function () {
+
+    this.setData({ flagNote: false })
+    this.setData({ loginshow: false })
+  },
+  //消失
+
+  hide: function () {
+
+    this.setData({ flagNote: true })
+
+  },
+  toNote: function () {
+    this.setData({ flagNote: false })
+    this.setData({ loginshow: true })
+  },
+  toLogin: function () {
+   // this.hideModal();
+    this.setData({ flagNote: true, })
+    //this.onShow();
+    this.hideModal()
+  },
+  /**
+  * 放弃游戏
+  */
+  // close: function () {
+  //   var that = this;
+  //   wx.request({
+  //     url: 'http://192.168.0.146:8080/Servlet/CloseStateServlet',
+  //     method: "POST",
+  //     header: {
+  //       'content-type': 'application/x-www-form-urlencoded',
+  //     },
+  //     data: {
+  //       openid: wx.getStorageSync('openid'),
+  //       state: 0
+  //     },
+  //     success: function (res) {
+  //       // that.setData({
+  //       //   musicValue: res.data.musicValue,
+  //       // });
+  //       console.log("======" + res);
+  //       console.log("======" + res.data.state);
+  //       if (res.data.state == 0) {
+  //         console.log("放弃匹配成功");
+  //         // clearInterval(timer);
+  //         wx.showModal({
+  //           title: '提示',
+  //           content: '您放弃了本局游戏,但是依然会扣除音乐值',
+  //           success: function (res) {
+  //             if (res.confirm) {
+  //               console.log('用户点击确定')
+  //             }
+  //           }
+  //         })
+  //       }
+  //       else {
+  //         console.log("放弃匹配失败");
+  //       }
+  //     }
+  //   })
+  // }
 })

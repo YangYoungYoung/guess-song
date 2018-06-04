@@ -21,22 +21,26 @@ Page({
     wx.showShareMenu({
       withShareTicket: true
     })
-
+    console.log("闯关模式里" + wx.getStorageSync('openid'));
+    var that = this
     wx.request({
       url: 'https://xyt.xuanyutong.cn/Servlet/selectMusicByOpenid',
-      headers: {
-        ' -Type': 'application/json'
-      },
+      // url: 'http://192.168.0.146:8080/Servlet/selectMusicByOpenid',
+      // method: "POST",
+        headers: {
+          ' -Type': 'application/json'
+        },
       data: {
         openid: wx.getStorageSync('openid')
       },
       success: function (res) {
+        console.log("=============关数：" + res.data.id);
         that.setData({
           gameNumber: res.data.id
         });
       }
     })
-    var that = this
+    
     wx.getUserInfo({
       success: function (res) {
         //console.log(res);

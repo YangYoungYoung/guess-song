@@ -11,6 +11,6 @@
     <view class='yinfu'>
       <image src="../../images/pk_waiting_musiclogo.png" mode="aspectFill"/> 
     </view>   
-    <text class='num'>30</text>
+    <text class='num'>-20</text>
   </view>
 </view>
