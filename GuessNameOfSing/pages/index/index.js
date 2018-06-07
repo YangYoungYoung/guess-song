@@ -69,9 +69,9 @@ Page({
         duration: 1500,
       })
     }
-    wx.showLoading({
-      title: '加载中...'
-    })
+    // wx.showLoading({
+    //   title: '加载中...'
+    // })
     let that = this
     if (e.detail.userInfo) {
       that.getOP(e.detail.userInfo)
@@ -117,7 +117,7 @@ Page({
         username: userInfo.nickName,
       },
       success: function (res) {
-        console.log("访问服务器成功=====" + res.data);
+        // console.log("访问服务器成功=====" + res.data);
         console.log("访问服务器成功" + res.data.aa);
         // console.log("访问服务器成功" + res.data.aa.openid);
         wx.setStorageSync('openid', res.data.aa.openid); // 单独存储openid

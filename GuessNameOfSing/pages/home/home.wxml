@@ -50,7 +50,7 @@
   <view class="box" wx:if="{{showModal}}">
     <image class="login" src="../../images/loginpic.png"></image>
     <view class="next" bindtap="toNote">
-      <text class='text'>点击领取</text>
+      <text class='text'>鐐瑰嚮棰嗗彇</text>
     </view>
 
     <view class="modal-box" hidden="{{flagNote}}">
@@ -61,7 +61,7 @@
           <image class="note" src="../../images/note.png"></image>
           <text class='text1'>+{{value}}</text>
           <view class="next1" bindtap="toLogin">
-            <text class='text'>好的</text>
+            <text class='text'>濂界殑</text>
           </view>
 
         </view>

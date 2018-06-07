@@ -21,7 +21,7 @@ Page({
     wx.showShareMenu({
       withShareTicket: true
     })
-    console.log("闯关模式里" + wx.getStorageSync('openid'));
+    // console.log("闯关模式里" + wx.getStorageSync('openid'));
     var that = this
     wx.request({
       url: 'https://xyt.xuanyutong.cn/Servlet/selectMusicByOpenid',

@@ -17,7 +17,7 @@
       <text class="username">{{opponentname}}</text>
     </view>
   </view>
-  <!-- ×Ô¶¨ÒåToast -->
+  <!-- è‡ªå®šä¹‰Toast -->
   <import src="../../component/toastTest/toastTest.wxml"/>
   <template is="toast" data="{{ ..._toast_ }}"/>
   <view class="content">

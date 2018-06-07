@@ -43,7 +43,8 @@ page {
   font-size: 28rpx;
   background-color: #c33;
   color: white;
-  overflow: hidden;
+  line-height: 80rpx;
+  
 }
 
 .game-start-bt::after {

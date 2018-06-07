@@ -1,6 +1,6 @@
 // pages/pkwelcome/pkwelcome.js
 var app = getApp()
-var time=800;
+var time = 800;
 var int;
 var oid;
 Page({
@@ -10,16 +10,16 @@ Page({
     showView3: true,
     showView4: true,
     userInfo: {},
-    countDownNumber: 2,
+    countDownNumber: 3,
     timerId: 0,
-    imageUrl:''
+    imageUrl: ''
   },
   onLoad: function (options) {
     // console.log("======" + wx.getStorageSync('openid'));
     var that = this;
     wx.request({
-      // url: 'https://xyt.xuanyutong.cn/Servlet/selectPkUserServlet',
-      url: 'http://192.168.0.146:8080/Servlet/selectPkUserServlet',
+      url: 'https://xyt.xuanyutong.cn/Servlet/selectPkUserServlet',
+      // url: 'http://192.168.0.146:8080/Servlet/selectPkUserServlet',
       method: "POST",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -28,38 +28,41 @@ Page({
         openid: wx.getStorageSync('openid')
       },
       success: function (res) {
-        console.log("获取头像" + res.data.avatar);
+        // console.log("获取头像" + res.data.avatar);
         console.log("获取对方id:" + res.data.oid);
         oid = res.data.oid;
+        //如果服务器返回对手openid为null的时候
         if(oid==null){
           clearInterval(int);
-          console.log("匹配失败");
           wx.showModal({
-            title: '提示',
-            content: '当前没有匹配到对手，请稍后再试',
-            success: function (res) {
-              if (res.confirm) {
-                console.log('用户点击确定')
-                wx.redirectTo({
-                  url: '../home/home',
-                })
-              }
-              else {
-                wx.redirectTo({
-                  url: '../home/home',
-                })
-              }
+            content: "当前没有匹配到对手，请稍后再试",
+            showCancel: false,
+            confirmText: "知道了",
+            success: function () {
+              wx.redirectTo({
+                url: '../home/home',
+              })
             }
           })
         }
-        else{
+          wx.setStorageSync('oid', res.data.oid); // 单独存储对方的openid
 
-        wx.setStorageSync('oid', res.data.oid); // 单独存储对方的openid
-       
-        that.setData({
-          imageUrl: res.data.avatar
+          that.setData({
+            imageUrl: res.data.avatar
+          })
+      },
+      fail: function () {
+        clearInterval(int); 
+        wx.showModal({
+          content: "当前没有匹配到对手，请稍后再试",
+          showCancel: false,
+          confirmText: "知道了",
+          success: function () {
+            wx.redirectTo({
+              url: '../home/home',
+            })
+          }
         })
-        }
       }
     })
     // 生命周期函数--监听页面加载 
@@ -142,7 +145,7 @@ Page({
     page.setData({
       timerId: timer
     })
-},
+  },
 
   getUserInfo: function (e) {
     console.log(e)
